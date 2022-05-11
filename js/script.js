@@ -17,6 +17,7 @@ const app = new Vue({
   data: {
 
     mail: [],
+    
   },
 
   methods: {
@@ -28,7 +29,7 @@ const app = new Vue({
         .then(resp => {
         // console.log(resp.data);
 
-        this.mail = resp.data;
+        this.mail.push(resp.data);
 
         console.log(this.mail);
         })
