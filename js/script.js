@@ -17,21 +17,28 @@ const app = new Vue({
   data: {
 
     mail: [],
-    
+    isLoading: true
   },
 
   methods: {
 
+    // Funzione genera mail prese da un API
     generateMail(){
 
+      // Ciclo per ottenere le mail che mi servono es. 10
       for (let i = 0; i < 10; i++) {
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then(resp => {
-        // console.log(resp.data);
+          // console.log(resp.data);
 
-        this.mail.push(resp.data);
+          // Pusho le 10 mail nell'array di mail 
+          this.mail.push(resp.data);
 
-        console.log(this.mail);
+          console.log(this.mail);
+
+          // Una volta pushate il flag del caricamento diventa false
+          this.isLoading = false;
+
         })
         
       };
@@ -41,6 +48,8 @@ const app = new Vue({
     
   },
 
+  // La funzione che genera le mail viene 
+  // eseguita al caricamento della pagina
   mounted(){
     this.generateMail()
   }

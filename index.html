@@ -41,7 +41,16 @@
   <div id="app">
     <h1 class="text-center fw-bold py-5">Stampo 10 indirizzi mail random</h1>
 
-    <ul v-for="mailItem in mail" class="text-center">
+    <!-- mentre carica la lista di mail stampo uno spinner loading: 
+    quindi fino a che il flag isLoading rimane true -->
+    <div v-if="isLoading" class="text-center">
+      <div class="spinner-border text-dark gb-loading" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Poi stampo la lista di mail -->
+    <ul v-else v-for="mailItem in mail" class="text-center">
       <li>{{mailItem.response}}</li>
     </ul>
 

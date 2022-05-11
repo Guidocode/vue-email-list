@@ -2,3 +2,8 @@ body{
   background-color: rgba(165, 42, 42, 0.521);
   color: white;
 }
+
+.gb-loading{
+  width: 8rem;
+  height: 8rem;
+}
